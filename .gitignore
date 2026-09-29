@@ -1,0 +1,14 @@
+# Dependencies and generated builds
+**/node_modules/
+**/dist/
+*.log
+
+# Secrets and machine-specific files
+**/.env
+**/.env.*
+!.env.example
+.DS_Store
+
+# Local Postman application download (not project source)
+backend/Postman/
+backend/postman.tar.gz
