@@ -100,6 +100,25 @@ const AUTH_STYLES = `
     line-height: 1.6;
     max-width: 340px;
   }
+
+  /* ── Completion illustration ── */
+  .auth-visual {
+    position: relative; z-index: 1;
+    width: min(500px, 58%); height: 200px;
+    margin: 0 -.75rem 0 auto; display: grid; place-items: center;
+  }
+  .auth-visual::before {
+    content: ''; position: absolute; width: 285px; height: 100px;
+    bottom: 3px; right: 20px; border-radius: 50%;
+    background: rgba(37,99,235,0.24); filter: blur(26px);
+  }
+  .auth-visual svg { position: relative; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 18px 22px rgba(2,6,23,0.34)); }
+  @media (max-height: 850px) and (min-width: 900px) {
+    .auth-visual { height: 145px; transform: scale(.9); margin-block: -7px; }
+  }
+  @media (min-width: 900px) and (max-width: 1199px) {
+    .auth-visual { width: min(390px, 100%); margin-right: 0; }
+  }
   .auth-features {
     position: relative; z-index: 1;
     display: flex; flex-direction: column; gap: 12px;
@@ -310,6 +329,25 @@ export default function Login() {
           <p className="auth-left-sub">
             A focused workspace to track, prioritize, and complete everything that matters.
           </p>
+        </div>
+        <div className="auth-visual" role="img" aria-label="An orbit of connected tasks progressing toward completion">
+          <svg viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="core" cx="0" cy="0" r="1" gradientTransform="translate(354 104) rotate(90) scale(53)" gradientUnits="userSpaceOnUse"><stop stopColor="#93C5FD" /><stop offset=".54" stopColor="#3B82F6" /><stop offset="1" stopColor="#1D4ED8" /></radialGradient>
+              <linearGradient id="glass" x1="279" y1="54" x2="419" y2="155" gradientUnits="userSpaceOnUse"><stop stopColor="#EFF6FF" stopOpacity=".24" /><stop offset="1" stopColor="#60A5FA" stopOpacity=".05" /></linearGradient>
+              <linearGradient id="node" x1="111" y1="72" x2="165" y2="115" gradientUnits="userSpaceOnUse"><stop stopColor="#FDE68A" /><stop offset="1" stopColor="#F59E0B" /></linearGradient>
+            </defs>
+            <ellipse cx="354" cy="104" rx="120" ry="52" stroke="#60A5FA" strokeOpacity=".24" strokeWidth="1.5" transform="rotate(-22 354 104)" />
+            <ellipse cx="354" cy="104" rx="84" ry="107" stroke="#60A5FA" strokeOpacity=".18" strokeWidth="1.5" transform="rotate(42 354 104)" />
+            <path d="M74 118C152 119 195 58 283 69" stroke="#60A5FA" strokeOpacity=".42" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 8" />
+            <path d="M236 153C273 172 336 174 389 151" stroke="#60A5FA" strokeOpacity=".34" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 8" />
+            <circle cx="354" cy="104" r="62" fill="url(#glass)" stroke="#93C5FD" strokeOpacity=".24" />
+            <circle cx="354" cy="104" r="46" fill="url(#core)" /><circle cx="339" cy="88" r="12" fill="#BFDBFE" fillOpacity=".32" />
+            <path d="M331 105L345 119L378 85" stroke="white" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+            <g transform="rotate(-5 128 109)"><rect x="72" y="76" width="112" height="66" rx="15" fill="#1E293B" stroke="#93C5FD" strokeOpacity=".22" /><rect x="87" y="93" width="49" height="7" rx="3.5" fill="#E2E8F0" fillOpacity=".85" /><rect x="87" y="107" width="76" height="5" rx="2.5" fill="#94A3B8" fillOpacity=".54" /><circle cx="155" cy="125" r="12" fill="url(#node)" /><path d="M150 125L154 129L161 121" stroke="#78350F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></g>
+            <g transform="rotate(9 437 73)"><rect x="406" y="46" width="62" height="55" rx="15" fill="#172554" stroke="#60A5FA" strokeOpacity=".42" /><rect x="421" y="63" width="31" height="6" rx="3" fill="#DBEAFE" fillOpacity=".8" /><rect x="421" y="76" width="20" height="5" rx="2.5" fill="#93C5FD" fillOpacity=".5" /></g>
+            <circle cx="209" cy="51" r="7" fill="#FBBF24" /><circle cx="447" cy="144" r="5" fill="#93C5FD" /><circle cx="269" cy="163" r="4" fill="#60A5FA" />
+          </svg>
         </div>
         <div className="auth-features">
           {[
